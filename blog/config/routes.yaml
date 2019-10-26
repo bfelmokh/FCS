@@ -1,0 +1,10 @@
+index:
+    path: /blog
+    controller: App\Controller\BlogController::index
+
+ajout:
+    path: /somme/{a}/{b}
+    controller: App\Controller\SommeController::index
+product:
+    path: /product/{name}/{price}
+    controller: App\Controller\ProductController::index
