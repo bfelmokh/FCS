@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Etudiants{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Liste des Etudiants</h1>
+    <a href="{{ path('etudiant_new') }}" class="btn btn-lg btn-primary">Create NEW</a>
+    <br><br>
+    
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td>{{ etudiant.id }}</td>
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>
+                    <a href="{{ path('etudiant_show', {'id': etudiant.id}) }}" class="btn btn-success">Afficher</a>
+                    <a href="{{ path('etudiant_edit', {'id': etudiant.id}) }}" class="btn btn-warning">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
